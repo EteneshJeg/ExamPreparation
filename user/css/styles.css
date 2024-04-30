@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    line-height: 50px;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #ffd700; /*change color on hover */
+}
+.scrolled {
+    background-color: #2ad6bf;/*change background color when scrolled*/
+}
+.content {
+    margin: 200px;
+
+}

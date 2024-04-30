@@ -3,6 +3,7 @@ require_once("../helpers/init.php");
 
 print "<pre>";
 print_r($_POST);
+print_r($_SESSION);
 
 
 $email = "";
@@ -19,12 +20,13 @@ if (isset($_POST['email'])) {
 if (isset($_POST['password'])) {
     $password = $_POST['password'];
 }
-if ( !empty($email) && !empty($password)) {
-  $loggedinuser = loginUser( $email, $password);
+if (!empty($email) && !empty($password)) {
+    $loggedinuser = loginUser($email, $password);
 }
 
-if(empty($loggedinuser)){
+if (empty($loggedinuser)) {
     echo "Not Logged in";
-}else{
+} else {
     print_r($loggedinuser);
+    $_SESSION['uHash'] = $loggedinuser['uHash'];
 }

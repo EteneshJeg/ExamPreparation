@@ -1,107 +1,81 @@
 <?php
-// function abebe(){
-//     echo "I am here";
-// }
 
-// function cleanUp($data){
-//     // Agood article on how to sanitize user input 
+require_once("init.php");
 
-//     $data = trim($data);
-//     $data = stripslashes($data);
-//     $data = htmlspecialchars($data);
+//clean up
 
-//     return $data;
-// }
-
-// function registerUser($fname,$lname,$email,$password){
-    
-//     global $link;
-
-//     $fname = cleanUp($fname);
-//     $lname = cleanUp($lname);
-//     $email = cleanUp($email);
-//     $password = md5($password);
-//     $joined_date = date("Y-m-d H:i:s");
-//     $uHash = md5($email);
-
-    // $query_text = "INSERT INTO users (email,fName,lName,password,joined_date,uHash) VALUES ('?','?','?','?',Now(),?)";
-
-// Register 
-    function registerUser($firstName, $lastName, $email, $password)
+function cleanUp($data)
 {
-    global $link; // Assuming $link is the established database connection
+  $data = htmlspecialchars($data);
+  $data = stripslashes($data);
+  $data = trim($data);
 
-    $uHash = md5($email);
-    $password = md5($password);
-
-    $query = "INSERT INTO Users (fName, lName, email, password, joined_date, uHash) VALUES (?, ?, ?, ?, NOW(), ?)";
-
-    // Prepare the query
-    $stmt = mysqli_prepare($link, $query);
-    if (!$stmt) {
-        die("Error: " . mysqli_error($link));
-    }
-
-    // Bind the parameters
-    mysqli_stmt_bind_param($stmt, "sssss", $firstName, $lastName, $email, $password, $uHash);
-
-    // Execute the query
-    $result = mysqli_stmt_execute($stmt);
-    if (!$result) {
-        die("Error: " . mysqli_stmt_error($stmt));
-    }
-
-    // Close the statement
-    mysqli_stmt_close($stmt);
+  return $data;
 }
 
-// login 
-function  loginUser( $email, $password){
-    global $link; // Assuming $link is the established database connection
+//Register function
+function registerUser($fname, $lname, $email, $password)
+{
+  global $link;
 
-    $email = $email;
-    $password = md5($password);
+  $fname = cleanUp($fname);
+  $lname = cleanUp($lname);
+  $email = cleanUp($email);
+  $password = md5($password);
+  $joined_date = date("Y-m-d H:i:s");
+  $uHash = md5($email);
 
-    $fetched_data = array() ;
-    
-    $query_text = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+  $query_text = "INSERT INTO users (email, fName, lName, password, joined_date, uHash) VALUES (?, ?, ?, ?, Now(), ?)";
+  $query = mysqli_prepare($link, $query_text);
+  mysqli_stmt_bind_param($query, 'sssss', $email, $fname, $lname, $password, $uHash);
+  mysqli_stmt_execute($query);
 
-    $query = mysqli_query($link,$query_text);
-    if($query){
-        while($row = mysqli_fetch_assoc($query)){
-        $fetched_data = $row;
-    }
-    }
-    return $fetched_data;
+  if (mysqli_stmt_affected_rows($query) > 0) {
+    echo "sertuwal konjo";
+  } else {
+    echo "alseram yene web";
+  }
 }
-    
-    
-//     $query = mysqli_query($link,$query_text);
 
-//     if($query){
-//         // return true;
-//     echo "connected";
+// Login 
 
-//     }else{
-//         echo "not connected";
-// }
-// }
+// check if user name and password is correct 
 
-?>
+function loginUser($email, $password)
+{
+  global $link;
+  $email = cleanUp($email);
+  $password = md5($password);
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank you page</title>
-  </head>
-  <body>
-    <header>
-      <h1>Thank you for your message!</h1>
-     
-    </header>
-    <section>We will get back to you soon.</section>
-  </body>
-</html>
+  $fetched_Data = array();
+
+  $query_text = "SELECT * FROM Users WHERE email = ? AND password = ?";
+
+  // Prepare the query
+  $stmt = mysqli_prepare($link, $query_text);
+  if (!$stmt) {
+    die("Error: " . mysqli_error($link));
+  }
+
+  // Bind the parameters
+  mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+
+  // Execute the query
+  $result = mysqli_stmt_execute($stmt);
+  if (!$result) {
+    die("Error: " . mysqli_stmt_error($stmt));
+  }
+
+  // Get the result set
+  $query = mysqli_stmt_get_result($stmt);
+
+  if ($query) {
+    while (($row = mysqli_fetch_assoc($query))) {
+      $fetched_Data = $row;
+    }
+  }
+  // Close the statement
+  mysqli_stmt_close($stmt);
+
+  return $fetched_Data;
+}

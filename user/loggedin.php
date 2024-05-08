@@ -26,7 +26,14 @@ if (!empty($email) && !empty($password)) {
 
 if (empty($loggedinuser)) {
     echo "Not Logged in";
+
+    $_SESSION['login_error'] = "Invalid credentials";
+    header("Location: ./login.php");
 } else {
     print_r($loggedinuser);
     $_SESSION['uHash'] = $loggedinuser['uHash'];
+    $_SESSION['fName'] = $loggedinuser['fName'];
+    
+    // echo "successfully login";
+    header("Location: ../index.php");
 }

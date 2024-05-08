@@ -1,6 +1,18 @@
 <?php
+  
+  require_once("helpers/init.php");
+  $_SESSION['test'] = 'example';
+  
+  print "<pre>";
+print_r($_POST);
+print_r($_SESSION);
+?>
+
+<?php
+
+  
 // Start the session
-session_start();
+// session_start();
 
 // Set error reporting for debugging
 ini_set('display_errors', 1);
@@ -20,7 +32,7 @@ if (isset($_POST['logout'])) {
     // Destroy the session
     session_destroy();
     // Redirect to homepage or login page
-    header("Location: /"); // Change the URL to your desired location
+    header("Location: user/login.php"); // Change the URL to your desired location
     exit();
 }
 ?>
@@ -39,7 +51,7 @@ if (isset($_POST['logout'])) {
     <h1>Home Page</h1>
 
     <?php if ($isLoggedIn) : ?>
-        <h2>Welcome, User!</h2>
+        <h2 class="welcome-text">Welcome, <?php echo $_SESSION['fName']?></h2>
     <?php endif; ?>
 
     <header id="header">
@@ -51,9 +63,9 @@ if (isset($_POST['logout'])) {
                 <?php if ($isLoggedIn) : ?>
                     <!-- If user is logged in, show Logout -->
                     <li>
-                        <form method="post">
-                            <input type="submit" name="logout" value="Logout" class="nav-link">
-                        </form>
+                    <form method="post">
+                            <input type="submit" name="logout" value="Logout" class="nav-link" style="background-color: green;">
+                    </form>
                     </li>
                 <?php else : ?>
                     <!-- If user is logged out, show Login -->

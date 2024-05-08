@@ -1,3 +1,17 @@
+<?php
+
+// Initialize session
+session_start();
+
+// Check if there is an error message in session
+if (isset($_SESSION['login_error'])) {
+    // Display the error message
+    echo "<p style='color: red; font-size: 16px; font-weight:bold;'>" . $_SESSION['login_error'] . "</p>";
+    // Clear the error message from session
+    unset($_SESSION['login_error']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

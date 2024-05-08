@@ -1,6 +1,6 @@
 <?php
-  
-  require_once("helpers/init.php");
+
+require_once("./helpers/init.php");
   $_SESSION['test'] = 'example';
   
   print "<pre>";
@@ -10,7 +10,7 @@ print_r($_SESSION);
 
 <?php
 
-  
+
 // Start the session
 // session_start();
 

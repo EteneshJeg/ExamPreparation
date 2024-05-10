@@ -74,6 +74,20 @@ if (isset($_POST['logout'])) {
             </ul>
         </nav>
     </header>
+    <Section> <?php echo getTopicsForSections(); ?></Section>
 </body>
+
+
+<script>
+    function toggleTopics(index) {
+        var topics = document.getElementById('topics' + index);
+        if (topics.style.display === "none") {
+            topics.style.display = "block";
+        } else {
+            topics.style.display = "none";
+        }
+    }
+</script>
+
 
 </html>

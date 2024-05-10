@@ -117,6 +117,57 @@ function getTopics()
   return $fetched_Data;
 }
 
+function getTopicsForSections() {
+  global $link;
+  $html = ''; // Initialize an empty string to store HTML content
+
+  // Define categories for each <h2> section
+  $categories = array('Study Material', 'Practice Questions', 'Quizzes');
+
+  // Prepare the query to fetch all topics
+  $query_text = "SELECT * FROM Topics";
+  $query = mysqli_query($link, $query_text);
+
+  if ($query) {
+      $topics = mysqli_fetch_all($query, MYSQLI_ASSOC); // Fetch all topics as an associative array
+
+      // If there are topics fetched
+      if (!empty($topics)) {
+          // Iterate through each category
+          foreach ($categories as $index => $category) {
+              $html .= '<div>';
+              $html .= '<h2 onclick="toggleTopics(' . $index . ')">' . $category . '</h2>'; // Add onclick event to toggle topics
+              $html .= '<ul id="topics' . $index . '" style="display:none;">'; // Set id for topics list
+              
+              // Iterate through each topic
+              foreach ($topics as $topic) {
+                  // Generate a unique link for each topic within the current category
+                  $link = generateLink($category, $topic['tid']);
+                  $html .= '<li><a href="' . $link . '">' . $topic['topicName'] . '</a></li>';
+              }
+
+              $html .= '</ul>';
+              $html .= '</div>';
+          }
+      }
+  }
+
+  return $html;
+}
+
+function generateLink($category, $topicId) {
+  // Define unique page URLs based on category and topic ID
+  switch ($category) {
+      case 'Study Material':
+          return './StudyMaterial' . $topicId . '.php';
+      case 'Practice Questions':
+          return 'PracticeQuestions' . $topicId . '.php';
+      case 'Quizzes':
+          return 'Quiz2/index' . $topicId . '.html';
+      default:
+          return '#';
+  }
+}
 
 //add study material
 

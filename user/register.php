@@ -10,19 +10,19 @@
 <body>
   <h1>Register</h1>
   <form action="/user/registrationHandler.php" method="post">
-
     <label for="fname">First Name:</label><br>
-    <input type="text" name="fname">
-    <br><br>
+    <input type="text" name="fname"><br><br>
     <label for="lname">Last Name:</label><br>
-    <input type="text" name="lname">
-    <br><br>
+    <input type="text" name="lname"><br><br>
     <label for="email">Email:</label><br>
-    <input type="email" name="email">
-    <br><br>
+    <input type="email" name="email"><br><br>
     <label for="password">Password:</label><br>
-    <input type="password" name="password">
-    <br><br>
+    <input type="password" name="password"><br><br>
+    <label for="role">Role:</label><br>
+    <select name="role">
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select><br><br>
     <input type="submit" value="Register">
   </form>
 </body>

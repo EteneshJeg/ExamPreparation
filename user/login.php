@@ -1,17 +1,3 @@
-<?php
-
-// Initialize session
-session_start();
-
-// Check if there is an error message in session
-if (isset($_SESSION['login_error'])) {
-    // Display the error message
-    echo "<p style='color: red; font-size: 16px; font-weight:bold;'>" . $_SESSION['login_error'] . "</p>";
-    // Clear the error message from session
-    unset($_SESSION['login_error']);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,15 +10,21 @@ if (isset($_SESSION['login_error'])) {
 <body>
     <h1>Login</h1>
     <form action="/user/loggedin.php" method="post">
-        <lable for="email">Email:</lable> <br>
-        <input type="email" name="email" /> <br> <br>
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" /><br><br>
 
-        <lable for="password">Password:</lable> <br>
-        <input type="password" name="password" /> <br> <br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password" /><br><br>
+
+        <label for="role">Role:</label><br>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
 
         <input type="submit" value="Login" />
-
     </form>
+
 </body>
 
 </html>

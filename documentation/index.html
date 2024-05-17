@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Quiza - Multistep Quiz Form</title>
+    <meta name="description" content="">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="img/fav.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel='stylesheet'>
+
+    <!-- Syntax Highlighter -->
+    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
+    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
+
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <!-- Normalize/Reset CSS-->
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body id="welcome">
+
+    <aside class="left-sidebar">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <div class="logo-text">
+                uiza
+            </div>
+        </div>
+        <nav class="left-nav">
+            <ul id="nav">
+                <li class="current"><a href="#welcome">Welcome</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#tmpl-structure">Structure</a></li>
+                <li><a href="#css-structure">CSS Files</a></li>
+                <li><a href="#import">Placing Form or Template</a></li>
+                <li><a href="#javascript">JavaScript Libraries</a></li>
+                <li><a href="#jqueryvalid">jQuery Validation</a></li>
+                <li><a href="#correct">Check Correct Answers</a></li>
+                <li><a href="#credit">Source and Credit</a></li>
+                <li> <a href="#copyright">Copyright</a> </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <div id="main-wrapper">
+        <div class="main-content">
+            <section id="welcome">
+                <div class="content-header">
+                    <h1>Quiza - Multistep Quiz Form</h1>
+                </div>
+                <div class="welcome">
+
+                    <h2 class="twenty">Welcome To Quiza UI Kit - Creative HTML5 Template Documentation.</h2>
+
+                    <p>Firstly, thanks for purchasing Quiza. We really appriceate your support.</p>
+
+                    <p>In this document, we have tried to cover all the things related to this template. Here, you will
+                        find the full installation guide
+                        and how do you will use this anywhere and some common issues with its solution - read this
+                        document minutely if you are experiencing any difficulties. If you need any help that are beyond
+                        the scope of this document, you can reach us at,
+                        <br>
+                        </br>
+                        <li><code><a href="mailto:userthemes@gmail.com">userthemes@gmail.com</a></code></li>
+                    </p>
+                </div>
+
+                <div class="features">
+                    <h2 class="twenty">Template Features</h2>
+
+                    <ul>
+                        <li>Clean &amp; Simple Design</li>
+                        <li>HTML5 &amp; CSS3</li>
+                        <li>Quiz Form</li>
+                        <li>jQuery Validation</li>
+                        <li>Fully Responsive Design</li>
+                        <li>All files are well commented</li>
+                        <li>Cross Browser Compatible with Brave, Firefox, Safari, Opera, Chrome, Edge</li>
+                        <li>Extensive Documentation</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section id="installation">
+                <div class="content-header">
+                    <h1>Quiza - Multistep Quiz Form</h1>
+                </div>
+                <h2 class="title">Installing Template.</h2>
+
+                <div class="section-content">
+                    <ol>
+                        <li>After unzip the download pack, you'll found a Template Folder with all the files.</li>
+                        <li>You can view this Template in any browser, you can display or edit the Template without an
+                            internet connection.(May not work fonts and google map).</li>
+                        <li>Now go to your cpanel or open your FTP Client (like <a target="_blank"
+                                href="https://filezilla-project.org/download.php">Filezilla</a>) and upload the content
+                            of the Template on your server root.</li>
+                        <li>Once the files are done uploading go to www.yourdomainname.com/index.html</li>
+                    </ol>
+                </div>
+
+            </section>
+
+
+            <section id="tmpl-structure">
+                <h2 class="title">Template Structure</h2>
+                <p class="fifteen">All information within the main content area is nested within a body tag. The general
+                    template structure is pretty the same throughout the template. Here is the general structure of main
+                    page (index.html).</p>
+                <pre class="brush: html">
+                    <main>
+                        <div class="logo">
+                            <!--LOGO CONTENT-->
+                        </div>
+                        <section class="steps">
+                            <form id="stepFrm" novalidate onsubmit="return flase" class="show-section">
+                                <!--Step 1 Content-->
+                                <fieldset id="step1">
+                                    <!-- step 1 form -->
+                                </fieldset>
+                                <!--Step 2 Content-->
+                                <fieldset id="step2">
+                                    <!-- step 2 form -->
+                                </fieldset>
+                                <!--Step 3 Content-->
+                                <fieldset id="step3">
+                                    <!-- step 3 form -->
+                                </fieldset>
+                                <!--Step 4 Content-->
+                                <fieldset id="step4">
+                                    <!-- step 4 form -->
+                                </fieldset>
+                            </form>
+                        </section>
+
+
+                        <div id="error">
+                            <!--show Validation Errors-->
+                        </div>
+                    </main>
+		        </pre>
+            </section>
+
+
+            <section id="css-structure">
+                <h2 class="title">CSS Files and Structure</h2>
+                <p class="fifteen">These are the css files that are loaded into templates in <strong>Head
+                        Section</strong>.</p>
+                <pre class="brush: html">		                
+                    <!--CSS ============================================= -->
+
+                        <!-- fonts -->
+                        <link rel="stylesheet" href="assets/fonts/font.css">
+
+                        <!-- fontawesome 5 -->
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+                        <!-- bootstrap 5 -->
+                        <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css">
+
+                        <!-- Custom Css Files -->
+                        <link rel="stylesheet" href="assets/css/style.css">
+                        <link rel="stylesheet" href="assets/css/responsive.css">
+                        <link rel="stylesheet" href="assets/css/animation.css">
+
+                        <!--Result Css-->
+                        <link rel="stylesheet" href="assets/css/result_style.css">
+		        </pre>
+
+                <h2 class="title">Google Web Fonts</h2>
+
+                <p>By default, the template loads this font from Google Web Font Services, you can change the font in style.css file with
+                    the one that suits you best.</p>
+
+                <pre class="brush:html">						<!--
+						Google Font
+						=========================== -->
+                        @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sen:wght@400;700;800&display=swap');
+		            </pre>
+
+                <p class="twenty">Remember to change the font into <strong>style.css</strong></p>
+            </section>
+
+            <section id="import">
+                <h2 class="title">Placing Form or Template</h2>
+                <p>For better work progress, we've added a code snippet here. Suppose, you want to place a form to
+                    different HTML template;
+                    So, here's the example of how you will do that.
+                    <br/>
+                    Note: Any step you copy must be placed inside form tag
+                </p>
+
+                <pre class="brush:html">						
+                    <!-- step-1-form-->
+            <!-- Step 1 -->
+            <fieldset id="step1">
+                <!-- Question -->
+                <h1 class="question">
+                  Which Former Britishcolony was Given Back to China in 1997?
+                </h1>
+  
+                <!-- Question MArk -->
+                <img
+                  class="questionImg"
+                  src="assets/images/question.png"
+                  alt="Question"
+                />
+  
+                <!-- OPtions -->
+                <div class="d-flex justify-content-between flex-wrap">
+                  <div class="option animate">
+                    <label>France</label>
+                    <input type="radio" name="op1" value="France" />
+                  </div>
+                  <div class="option animate delay-100">
+                    <label>Egypt</label>
+                    <input type="radio" name="op1" value="Egypt" />
+                  </div>
+                  <div class="option animate delay-200">
+                    <label>Vatican City</label>
+                    <input type="radio" name="op1" value="Vatican City" />
+                  </div>
+                  <div class="option animate delay-300">
+                    <label>Russia</label>
+                    <input type="radio" name="op1" value="Russia" />
+                  </div>
+                </div>
+  
+                <!-- next prev button -->
+                <div class="nextPrev">
+                  <button class="next" type="button" id="step1btn">
+                    next question<i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </fieldset>
+
+		        </pre>
+            </section>
+
+            <section id="javascript">
+                <h2 class="title">Javascript Files and Structure</h2>
+
+                <p class="fifteen">These are the list of Javascript files that are loaded into templates in end of the
+                    <strong>Body Section</strong>.
+
+
+                <pre class="brush: html">
+                        <!--JS Files-->
+                    <!-- bootstrap 5 -->
+                    <script src="assets/js/Bootstrap/bootstrap.min.js"></script>
+
+                    <!-- jQuery -->
+                    <script src="assets/js/jQuery/jquery-3.6.3.min.js"></script>
+
+                    <!-- Result JS -->
+                    <script src="assets/js/result.js"></script>
+
+                    <!-- Custom js -->
+                    <script src="assets/js/custom.js"></script>
+		        </pre>
+            </section>
+            <section id="jqueryvalid">
+                <h2 class="title">jQuery Validation</h2>
+
+                <p class="fifteen">Every step is checked when next button is clicked.
+
+
+                <p class="fifteen">radiovalidate(step number). this funciton will validate and return true if 
+                    the condition is met.
+
+
+                <pre class="brush: html">
+
+                    // quiz validation
+                var checkedradio = false;
+
+                function radiovalidate(stepnumber)
+                {
+                    var checkradio = $("#step"+stepnumber+" input").map(function()
+                    {
+                    if($(this).is(':checked'))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    }).get();
+
+                    checkedradio = checkradio.some(Boolean);
+                }
+
+                    
+
+		        </pre>
+                <p class="fifteen">to validate the inputs inside form,div or fieldset or any other element which contains an input or set of inputs. the id should be like this id="step1" or id="step10" of that parent element.
+
+
+                <pre class="brush: html">
+
+                    <div id="step10">
+                        <!--Inputs-->
+                    </div>
+                    <div class="next-prev">
+                        <button type="button" class="prev">Previous Step</button>
+                        <button type="button" id="step10btn" class="next">Next Step</button>
+                    </div>
+
+                    <!-- checking the step -->
+                    // check step10
+                    $("#step10btn").on('click', function()
+                    {
+                        radiiovalidate(10); 
+                        
+                
+                        if(inputschecked == false)
+                        {
+                            radiiovalidate(10);
+                        }
+                        else
+                        {
+                            next();
+                        }
+                    })
+
+                    
+
+		        </pre>
+            </section>
+
+            <section id="correct">
+                <h2 class="title">Correct Answers Validation</h2>
+
+                <p class="fifteen">Correct Answers of every step should be stored in an array which is given below
+
+
+                <pre class="brush: html">
+
+                    var correct_answers = ['Hong Kong','All of the above','Zoroastrianism','Gen. K.M. Cariappa', 'Zinc', '//increase if steps are more'];
+
+
+                    
+
+		        </pre>
+                <p class="fifteen">Complete Structure of how each option is checked and find the right one.
+                <pre class="brush: html">
+
+                    //correct answers
+                    var correct_answers = [
+                      "Hong Kong",
+                      "All of the above",
+                      "Zoroastrianism",
+                      "Gen. K.M. Cariappa",
+                      "Zinc",
+                    ];
+                    
+                    // user answers
+                    let correct = 0;
+                    
+                    var steps = $("fieldset").length;
+                    
+                    console.log(steps);
+                    function countresult(resultnumber) {
+                      $("#step" + resultnumber + " input").each(function () {
+                        for (var i = 0; i <= correct_answers.length; i++) {
+                          if ($(this).is(":checked")) {
+                            if ($(this).val() == correct_answers[i]) {
+                              correct++;
+                    
+                              break;
+                            }
+                          }
+                        }
+                      });
+                    
+                      var correctprcnt = (correct / steps) * 100;
+                    
+                      $(".u_prcnt").html(correctprcnt + "%");
+                      $(".u_result span").html(correctprcnt + " Points");
+                    
+                      if (correctprcnt >= 80) {
+                        $(".pass_check").html('<i class="fa-solid fa-check"></i> You Passed!');
+                        $(".result_msg").html("You passed the test!");
+                      }
+                    }
+
+                    
+
+		        </pre>
+            </section>
+
+            <section id="credit">
+                <h2 class="title">Source and Credit</h2>
+                <div class="script-source">
+                    <ul>
+                        <li><a target="_blank" href="https://jquery.com/">jQuery</a></li>
+                        <li><a target="_blank" href="https://getbootstrap.com/">Bootstrap5 Framework</a></li>
+                    </ul>
+
+                </div>
+
+            </section>
+
+            <section id="copyright">
+                <h2 class="title">Copyright</h2>
+                <p>Thanks to all our UI Experts and the Developers. <strong>Quiza</strong> made with ❤️ by
+                    <strong>User Themes</strong> | Copyright
+                    ©️2021-2023
+                </p>
+
+            </section>
+        </div>
+    </div>
+
+
+    <!-- Essential JavaScript Libraries
+		==============================================-->
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nav.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushCss.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+    <script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+
+</html>

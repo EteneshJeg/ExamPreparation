@@ -30,6 +30,12 @@ if (isset($_SESSION['login_error'])) {
         <lable for="password">Password:</lable> <br>
         <input type="password" name="password" /> <br> <br>
 
+        <label for="role">Role:</label><br>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select><br><br>
+        
         <input type="submit" value="Login" />
 
     </form>

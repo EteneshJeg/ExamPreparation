@@ -19,9 +19,15 @@ if (isset($_POST['email'])) {
 }
 if (isset($_POST['password'])) {
     $password = $_POST['password'];
+
+    // Update: Get role from form if set
+    if (isset($_POST['role'])) {
+        $role = $_POST['role'];
+    }
+
 }
 if (!empty($email) && !empty($password)) {
-    $loggedinuser = loginUser($email, $password);
+    $loggedinuser = loginUser($email, $password, $role);
 }
 
 if (empty($loggedinuser)) {
@@ -33,7 +39,8 @@ if (empty($loggedinuser)) {
     print_r($loggedinuser);
     $_SESSION['uHash'] = $loggedinuser['uHash'];
     $_SESSION['fName'] = $loggedinuser['fName'];
+    $_SESSION['role'] = $loggedinuser['role']; // Store the role in session
     
     // echo "successfully login";
-    header("Location: ../index.php");
+    header("Location: ../home.php");
 }

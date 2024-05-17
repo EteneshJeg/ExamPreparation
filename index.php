@@ -1,9 +1,9 @@
 <?php
 
 require_once("./helpers/init.php");
-  $_SESSION['test'] = 'example';
-  
-  print "<pre>";
+$_SESSION['test'] = 'example';
+
+print "<pre>";
 print_r($_POST);
 print_r($_SESSION);
 ?>
@@ -48,24 +48,22 @@ if (isset($_POST['logout'])) {
 </head>
 
 <body>
-    <h1>Home Page</h1>
+    <h1>Landing Page</h1>
 
-    <?php if ($isLoggedIn) : ?>
-        <h2 class="welcome-text">Welcome, <?php echo $_SESSION['fName']?></h2>
-    <?php endif; ?>
+
 
     <header id="header">
         <nav id="navbar">
             <ul>
                 <li><a href="#" class="nav-link">Home</a></li>
                 <li><a href="#" class="nav-link">About</a></li>
-                <li><a href="#" class="nav-link">Services</a></li>
+                <!-- <li><a href="#" class="nav-link">Services</a></li> -->
                 <?php if ($isLoggedIn) : ?>
                     <!-- If user is logged in, show Logout -->
                     <li>
-                    <form method="post">
+                        <form method="post">
                             <input type="submit" name="logout" value="Logout" class="nav-link" style="background-color: green;">
-                    </form>
+                        </form>
                     </li>
                 <?php else : ?>
                     <!-- If user is logged out, show Login -->
@@ -74,7 +72,17 @@ if (isset($_POST['logout'])) {
             </ul>
         </nav>
     </header>
-    <Section> <?php echo getTopicsForSections(); ?></Section>
+
+    <section>
+        <div>
+            <button type=""><a href="./user/register.php" class="nav-link">Register</a></button>
+            <button type=""><a href="./user/login.php" class="nav-link">Login</a></button>
+        </div>
+        <div></div>
+    </section>
+
+
+
 </body>
 
 
@@ -88,6 +96,7 @@ if (isset($_POST['logout'])) {
         }
     }
 </script>
+
 
 
 </html>

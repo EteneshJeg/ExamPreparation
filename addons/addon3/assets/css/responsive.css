@@ -1,0 +1,65 @@
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+@media (max-width: 1440px) {
+}
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 992px) {
+  .inputField .radio {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputField .radio {
+    width: 80px;
+    height: 80px;
+    padding: 7.5px;
+    margin: 0 10px;
+  }
+  .inputField label {
+    padding: 0 10px;
+    font-size: 15px;
+    height: 20px;
+    margin-top: -6px;
+  }
+}
+@media (max-width: 576px) {
+}
+
+@media (max-width: 480px) {
+  .mainInner h1 {
+    font-size: 30px;
+  }
+  .inputField {
+    margin-top: 10px;
+  }
+
+  .inputField .radio {
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+    margin: 0 8px;
+  }
+  .inputField label {
+    padding: 0 8px;
+    font-size: 12px;
+    height: 16px;
+    margin-top: -6px;
+  }
+  .mainInner::before {
+    height: 250px;
+  }
+  .mainInner {
+    padding: 30px;
+  }
+  .mainInner h1 {
+    font-size: 24px;
+  }
+}

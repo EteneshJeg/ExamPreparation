@@ -14,7 +14,7 @@ function cleanUp($data)
 }
 
 //Register function
-function registerUser($fname, $lname, $email, $password)
+function registerUser($fname, $lname, $email, $password, $role)
 {
   global $link;
 
@@ -25,31 +25,26 @@ function registerUser($fname, $lname, $email, $password)
   $joined_date = date("Y-m-d H:i:s");
   $uHash = md5($email);
 
-  $query_text = "INSERT INTO users (email, fName, lName, password, joined_date, uHash) VALUES (?, ?, ?, ?, Now(), ?)";
+  $query_text = "INSERT INTO users (email, fName, lName, password, joined_date, uHash, role) VALUES (?, ?, ?, ?, Now(), ?, ?)";
   $query = mysqli_prepare($link, $query_text);
-  mysqli_stmt_bind_param($query, 'sssss', $email, $fname, $lname, $password, $uHash);
-  mysqli_stmt_execute($query);
+  mysqli_stmt_bind_param($query, 'ssssss', $email, $fname, $lname, $password, $uHash, $role);
+  $result = mysqli_stmt_execute($query);
 
-  if (mysqli_stmt_affected_rows($query) > 0) {
-    echo "sertuwal konjo";
-  } else {
-    echo "alseram yene web";
-  }
+  return $result; // Return true on success, false on failure
 }
-
 // Login 
 
 // check if user name and password is correct 
 
-function loginUser($email, $password)
+function loginUser($email, $password, $role)
 {
   global $link;
-  $email = cleanUp($email);
+  $email = cleanUp($email); // Assuming cleanUp() function is defined and accessible
   $password = md5($password);
 
   $fetched_Data = array();
 
-  $query_text = "SELECT * FROM Users WHERE email = ? AND password = ?";
+  $query_text = "SELECT * FROM Users WHERE email = ? AND password = ? AND role = ?";
 
   // Prepare the query
   $stmt = mysqli_prepare($link, $query_text);
@@ -58,7 +53,12 @@ function loginUser($email, $password)
   }
 
   // Bind the parameters
-  mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+  mysqli_stmt_bind_param($stmt,
+    "sss",
+    $email,
+    $password,
+    $role
+  );
 
   // Execute the query
   $result = mysqli_stmt_execute($stmt);
@@ -213,5 +213,33 @@ function addPracticeQuestion($question, $answer, $topic)
     echo "Failed to add practice question.";
   } else {
     echo "Error occurred while adding practice question: " . mysqli_error($link);
+  }
+}
+
+
+
+// add Quiz 
+
+function addQuiz($quiz, $topic)
+{
+  global $link;
+
+  $quiz = cleanUp($quiz);
+  $topic = cleanUp($topic);
+
+  $query_text = "INSERT INTO quizzes (tid, quiz) VALUES (?, ?)";
+  $query = mysqli_prepare($link, $query_text);
+  mysqli_stmt_bind_param($query, 'is', $topic, $quiz);
+  mysqli_stmt_execute($query);
+
+  $affectedRows = mysqli_stmt_affected_rows($query);
+  if (
+    $affectedRows > 0
+  ) {
+    echo "Quiz added successfully.";
+  } elseif ($affectedRows === 0) {
+    echo "Failed to add quiz.";
+  } else {
+    echo "Error occurred while adding quiz: " . mysqli_error($link);
   }
 }

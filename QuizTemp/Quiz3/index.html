@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/Bootstrap/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- animation -->
+    <link rel="stylesheet" href="assets/css/animation.css" />
+
+    <!-- Responsive -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- result CSS -->
+    <link rel="stylesheet" href="assets/css/result_style.css" />
+  </head>
+  <body>
+    <main class="overflow-hidden">
+      <div class="container">
+        <!-- Steps Start -->
+        <section class="steps">
+          <form
+            novalidate
+            onsubmit="return false"
+            class="show-section"
+            id="stepForm"
+          >
+            <!-- Step 1 -->
+            <fieldset id="step1">
+              <!-- Question -->
+              <h1 class="question">
+                Is a variable named \'apple\' same as \'Apple\' in javascript?
+              </h1>
+
+              <!-- Options -->
+              <div class="options d-flex flex-wrap justify-content-between">
+                <div class="option animate">
+                  <input type="radio" name="op1" value="yes" />
+                  <label>yes</label>
+                </div>
+                <div class="option animate delay-100">
+                  <input type="radio" name="op1" value="No" />
+                  <label>No</label>
+                </div>
+                <div class="option animate delay-200">
+                  <input type="radio" name="op1" value="Only when we use \'strict\'" />
+                  <label>Only when we use \'strict\'</label>
+                </div>
+                <div class="option animate delay-300">
+                  <input type="radio" name="op1" value="None of the above" />
+                  <label>None of the above</label>
+                </div>
+              </div>
+
+              <!-- Next Prev Button -->
+              <div class="nextPrev">
+                <button class="prev" type="button">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <!-- COunter -->
+                <div class="stepCount"><span>1</span>/4</div>
+                <button class="next" type="button" id="step1btn">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </fieldset>
+
+            <!-- Step 2 -->
+            <fieldset id="step2">
+              <!-- Question -->
+              <h1 class="question"><span></span>
+                What will be the output of the following code?
+<script>document.write( typeof( '1' + 2) );</script>
+              </h1>
+
+              <!-- Options -->
+              <div class="options d-flex flex-wrap justify-content-between">
+                <div class="option animate">
+                  <input type="radio" name="op2" value="'boolean'" />
+                  <label>'boolean'</label>
+                </div>
+                <div class="option animate delay-100">
+                  <input type="radio" name="op2" value="'string'" />
+                  <label>'string'</label>
+                </div>
+                <div class="option animate delay-200">
+                  <input type="radio" name="op2" value="'number'" />
+                  <label>'number'</label>
+                </div>
+                <div class="option animate delay-300">
+                  <input type="radio" name="op2" value="None of the above" />
+                  <label>None of the above</label>
+                </div>
+              </div>
+
+              <!-- Next Prev Button -->
+              <div class="nextPrev">
+                <button class="prev" type="button">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <!-- COunter -->
+                <div class="stepCount"><span>2</span>/4</div>
+                <button class="next" type="button" id="step2btn">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </fieldset>
+
+            <!-- Step 3 -->
+            <fieldset id="step3">
+              <!-- Question -->
+              <h1 class="question">
+               What will be the output of the following code?
+<script>let ans = 6 / "3";document.write ( typeof ans );</script>
+              </h1>
+
+              <!-- Options -->
+              <div class="options d-flex flex-wrap justify-content-between">
+                <div class="option animate">
+                  <input type="radio" name="op3" value="'string'" />
+                  <label>'string'</label>
+                </div>
+                <div class="option animate delay-100">
+                  <input type="radio" name="op3" value="'integer'" />
+                  <label>'integer'</label>
+                </div>
+                <div class="option animate delay-200">
+                  <input type="radio" name="op3" value="'number'" />
+                  <label>'number'</label>
+                </div>
+                <div class="option animate delay-300">
+                  <input type="radio" name="op3" value="None of the above" />
+                  <label>None of the above</label>
+                </div>
+              </div>
+
+              <!-- Next Prev Button -->
+              <div class="nextPrev">
+                <button class="prev" type="button">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <!-- COunter -->
+                <div class="stepCount"><span>3</span>/4</div>
+                <button class="next" type="button" id="step3btn">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </fieldset>
+
+            <!-- Step 4 -->
+            <fieldset id="step4">
+              <!-- Question -->
+              <h1 class="question">
+               What is the correct syntax for referring to an external script called \'gfg.js\'?
+              </h1>
+
+              <!-- Options -->
+              <div class="options d-flex flex-wrap justify-content-between">
+                <div class="option animate">
+                  <input type="radio" name="op4" value="Lion" />
+                  <label><script name="gfg.js"></script></label>
+                </div>
+                <div class="option animate delay-100">
+                  <input type="radio" name="op4" value="<script href="gfg.js"> </script" />
+                  <label><script href="gfg.js"> </script></label>
+                </div>
+                <div class="option animate delay-200">
+                  <input type="radio" name="op4" value="script src='gfg.js'" />
+                  <label>script src="gfg.js"</label>
+                </div>
+                <div class="option animate delay-300">
+                  <input type="radio" name="op4" value="None of these" />
+                  <label>None of these</label>
+                </div>
+              </div>
+
+              <!-- Next Prev Button -->
+              <div class="nextPrev">
+                <button class="prev" type="button">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <!-- COunter -->
+                <div class="stepCount"><span>4</span>/4</div>
+                <button class="apply" type="button" id="sub">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </fieldset>
+          </form>
+
+          <img class="avatar" src="assets/images/avatar.png" alt="Avatar" />
+          <div class="backgroundSlab"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- result -->
+    <div class="loadingresult">
+      <img src="assets/images/loading.gif" alt="loading" />
+    </div>
+    <div class="result_page">
+      <div class="container">
+        <div class="result_inner">
+          <!-- header -->
+          <header class="resultheader">
+            Your Result is there
+            <div class="h-border"></div>
+          </header>
+
+          <div class="result_content">
+            <div class="result_msg">
+              <img src="assets/images/check.png" alt="check" />
+              Wow! You are Brilliant!
+            </div>
+            <span>your overall score</span>
+            <div class="u_prcnt">70%</div>
+            <div class="prcnt_bar">
+              <div class="fill"></div>
+            </div>
+            <div class="prcnt_bar_lvl">Medium</div>
+            <div class="lvl_overview">
+              <div class="lvl-single">
+                <div class="lvl-color low"></div>
+                <div class="lvl-name">Low</div>
+                <div class="lvl-line"></div>
+              </div>
+              <div class="lvl-single">
+                <div class="lvl-color medium"></div>
+                <div class="lvl-name">Medium</div>
+                <div class="lvl-line"></div>
+              </div>
+              <div class="lvl-single">
+                <div class="lvl-color high"></div>
+                <div class="lvl-name">High</div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="resultfooter"></footer>
+        </div>
+      </div>
+    </div>
+
+    <div id="error"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="assets/js/Bootstrap/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="assets/js/jQuery/jquery-3.7.1.min.js"></script>
+    <!-- Result JS -->
+    <script src="assets/js/result.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>

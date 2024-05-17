@@ -159,11 +159,11 @@ function generateLink($category, $topicId) {
   // Define unique page URLs based on category and topic ID
   switch ($category) {
       case 'Study Material':
-          return './StudyMaterial' . $topicId . '.php';
+          return './StudyMaterial/StudyMaterial' . $topicId . '.php';
       case 'Practice Questions':
-          return 'PracticeQuestions' . $topicId . '.php';
+          return 'PracticeQuestion/practiceQuestions' . $topicId . '.php';
       case 'Quizzes':
-          return 'Quiz2/index' . $topicId . '.html';
+          return 'QuizTemp/Quiz' . $topicId . '/index.html';
       default:
           return '#';
   }
